@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<style>
+header.masthead {
+    padding-top: 10.5rem;
+    padding-bottom: 6rem;
+    text-align: center;
+    color: #fff;
+    background-image: url("../static/assets/img/header-bg7.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+  }
+</style>
+{% endblock style%}
+    
+{% block content %}
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">¿Sos Profesional?</div>
+                <div class="masthead-heading text-uppercase">Estamos para ayudarte</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href='/neworkeruser'>Inscribite acá</a>
+            </div>
+
+
+        </header>
+
+        {% endblock content %}

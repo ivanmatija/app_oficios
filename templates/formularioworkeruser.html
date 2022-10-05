@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    
+{% block content %}
+<br><br><br>
+
+    <div class="div-container">
+        <div>
+            <h2>Rellena el formulario</h2>
+            <hr style="border: 1px solid grey;"/>
+        </div>
+    </div>
+
+    <br><br>
+    <div class="div-container" >
+        {% if msg %}
+        <div class="msg-container">
+            <div class="alert alert-success" role="alert">
+                {{msg}}
+            </div>
+            <a class="btn btn-primary" href="">Back</a>
+        </div>
+            
+        {% else %}
+        <form action="" method="POST" enctype="multipart/form-data" style="width: 50%;">{% csrf_token %}
+    
+            {{form.as_p}}
+
+            <div class="mt-4">
+                <a class="btn btn-secondary w-1" href="{% url 'index' %}">cancel</a>
+                <button class="config btn btn-secondary w-1" type="submit">save</button>
+            </div>
+        </form>
+        {% endif %}
+    </div>
+    <br><br><br>
+
+<style>
+    .bt{border: 1px solid blue;}
+
+    .div-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+    }
+    .msg-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .w-1{width: 20%;}
+</style>
+
+{% endblock content %}
+            

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    
+{% block content %}
+<br><br><br><br><br><br>
+
+    <div class="div-container">
+        <div>
+            <h2>Rellena el formulario</h2>
+            <hr style="border: 1px solid grey;"/>
+        </div>
+    </div>
+    <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    {% for i in quote_list %}
+    <div class="card border-success mb-3" style="max-width: 18rem; margin-right: 5px;">
+        <div class="card-body text-success">
+            <h5 class="card-title">{{ i.asunto }}</h5>
+            <p class="card-text">Usuario: {{ i.user }}</p>
+            <p class="card-text">Descripcion: {{ i.description }}</p>
+            <p class="card-text">Ubicacion: {{ i.location }}</p>
+            <img class="img-fluid" src="{{ i.imageOrderQuote.url }}" alt="..." />
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    <br><br>
+    <div class="div-container" >
+        {% if msg %}
+        <div class="msg-container">
+            <div class="alert alert-success" role="alert">
+                {{msg}}
+            </div>
+            <a class="btn btn-primary" href="">Back</a>
+        </div>
+            
+        {% else %}
+        <form action="" method="POST" enctype="multipart/form-data" style="width: 50%;">{% csrf_token %}
+    
+            {{form.as_p}}
+
+            <div class="mt-4">
+                <a class="btn btn-secondary w-1" href="{% url 'index' %}">cancel</a>
+                <button class="config btn btn-secondary w-1" type="submit">save</button>
+            </div>
+        </form>
+        {% endif %}
+    </div>
+    <br><br><br>
+
+<style>
+    .bt{border: 1px solid blue;}
+
+    .div-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+    }
+    .msg-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .w-1{width: 20%;}
+</style>
+
+{% endblock content %}
+            

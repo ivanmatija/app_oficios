@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    
+{% block style %}
+<style>
+header.masthead {
+    padding-top: 10.5rem;
+    padding-bottom: 6rem;
+    text-align: center;
+    color: #fff;
+    background-image: url("../static/assets/img/header-bg6.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+  }
+</style>
+{% endblock style%}
+
+    
+{% block content %}
+            <!-- Content Row-->
+                <!-- Header--> 
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Bienvenido a ServiciosYa!</div>
+                <div class="masthead-heading text-uppercase">Estamos para ayudarte</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#">Necesito un servicio</a>
+                <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'comofunciona/profesional' %}">Soy Profesional</a>
+            </div>
+
+
+        </header> 
+                    <!-- Section-->
+                    
+                        <div class="card text-center">
+                            <div class="card-header">
+                              <ul class="nav nav-pills card-header-pills">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'comofunciona' %}">Solicitar un Servicio</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link active" href="{% url 'comofunciona/cotizar' %}">Cotizar</a>
+                                </li>
+                              </ul>
+                            </div>
+                        <section class="page-section" id="about">
+                            <div class="container">
+                                <div class="text-center">
+                                    <h2 class="section-heading text-uppercase">¿Cómo funciona?</h2>
+                                </div>
+                                <ul class="timeline">
+                                    <li>
+                                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="..." /></div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                            </div>
+                                            <div class="timeline-body"><p class="text-muted">Descarga la app, o hacelo desde la web!</p></div>
+                                        </div>
+                                    </li>
+                                    <li class="timeline-inverted">
+                                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." /></div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                            </div>
+                                            <div class="timeline-body"><p class="text-muted">Registráte, podes hacerlo con tu cuenta de google, Facebook, Linkedin, Twitter, o simplemente crea un nombre de usuario y contraseña</p></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="..." /></div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                            </div>
+                                            <div class="timeline-body"><p class="text-muted">Si necesitas presupuestar un servicio clickeá en el boton "Pedi un presupuesto"</p></div>
+                                        </div>
+                                    </li>
+                                    <li class="timeline-inverted">
+                                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                            </div>
+                                            <div class="timeline-body"><p class="text-muted">Rellená el formulario</p></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                            </div>
+                                            <div class="timeline-body"><p class="text-muted">Recibirás notificaciones con los presupuestos de los distintos profesionales de la categoria correspondiente a tu pedido</p></div>
+                                        </div>
+                                    </li>
+                                    <li class="timeline-inverted">
+                                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                            </div>
+                                            <div class="timeline-body"><p class="text-muted">Elegí el que mas te convenga y dale a "solicitar"</p></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                            </div>
+                                            <div class="timeline-body"><p class="text-muted">Se te notificará por sms o notificacion push una posible fecha y rango horario propuesto por el profesional elegido</p></div>
+                                        </div>
+                                    </li>
+                                    <li class="timeline-inverted">
+                                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                            </div>
+                                            <div class="timeline-body"><p class="text-muted">Si la fecha y rango horario propuesto en la notificacion te queda bien, volvé a la app y confirmá la solicitud, si no estas de acuerdo clickeá en "solicitar otra fecha y hora"</p></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                            </div>
+                                            <div class="timeline-body"><p class="text-muted">Una vez hecha la solicitud, solo hay que esperar al profesional, si surge algun inconveniente, se le notificará</p></div>
+                                        </div>
+                                    </li>
+                                    <li class="timeline-inverted">
+                                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                            </div>
+                                            <div class="timeline-body"><p class="text-muted">Una vez terminado el trabajo podrá efectuar el pago a través de la app, para eso tenes que ingresar en la sección "Mis solicitudes", darle click al boton "pagar" y elegir la forma de pago</p></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                            </div>
+                                            <div class="timeline-body"><p class="text-muted">Una vez hecho el pago, tenes una garantía por 3 días si no estas de acuerdo con el trabajo hecho, podes hacer el reclamo en la sección "Mis Solicitudes" dandole click al boton "solicitar garantía" y rellenando el formulario</p></div>
+                                        </div>
+                                    </li>
+                                    <li class="timeline-inverted">
+                                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                            </div>
+                                            <div class="timeline-body"><p class="text-muted">Al solicitar garantía un profesional se comunicará con usted y lo visitará para programar un rearreglo del trabajo o la devolución del dinero</p></div>
+                                        </div>
+                                    </li>
+                                    <li class="timeline-inverted">
+                                        <div class="timeline-image">
+                                            <h4>
+                                                Gracias
+                                                <br />
+                                                por
+                                                <br />
+                                                confiar!
+                                            </h4>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                      </div>
+                    </div>
+                    
+                    
+    {% endblock content %}

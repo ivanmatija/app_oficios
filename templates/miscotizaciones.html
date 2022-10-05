@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style>
+    body{background:#eee}.ratings i{font-size: 16px;color: red}.strike-text{color: red;text-decoration: line-through}.product-image{width: 100%}.dot{height: 7px;width: 7px;margin-left: 6px;margin-right: 6px;margin-top: 3px;background-color: blue;border-radius: 50%;display: inline-block}.spec-1{color: #938787;font-size: 15px}h5{font-weight: 400}.para{font-size: 16px}
+    
+    body { padding-top:30px; }
+.widget .panel-body { padding:0px; }
+.widget .list-group { margin-bottom: 0; }
+.widget .panel-title { display:inline }
+.widget .label-info { float: right; }
+.widget li.list-group-item {border-radius: 0;border: 0;border-top: 1px solid #ddd;}
+.widget li.list-group-item:hover { background-color: rgba(86,61,124,.1); }
+.widget .mic-info { color: #666666;font-size: 11px; }
+.widget .action { margin-top:5px; }
+.widget .comment-text { font-size: 12px; }
+.widget .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }
+
+
+
+
+.container .row .image{
+  margin: 10px 0;
+  height: 90px;
+  width: 90px;
+  background: #198754;
+  padding: 3px;
+  border-radius: 50%;
+}
+.image img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+
+</style>
+{% endblock style%}
+
+{% block content %}
+<br><br>
+{% for i in object_list %}
+<div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-10">
+            <div class="row p-2 bg-white border rounded mt-2">
+                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="{{ i.imageOrderQuote.url }}"></div>
+                <div class="col-md-6 mt-1">
+                    <h5>{{ i.asunto }}</h5>
+                    <div class="mt-1 mb-1 spec-1"><span>{{ i.category }}</span></div>
+                    <p class="text-justify text-truncate para mb-0">{{ i.description }}<br><br></p>
+                </div>
+                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                    <div class="d-flex flex-row align-items-center" style="word-wrap: normal">
+                        <h4 class="mr-1">Precio promedio:${{ i.ave }}</h4>
+                    </div>
+                    <div class="d-flex flex-column mt-4"><button class="presupuesto-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#presupuestos{{ i.id }}" aria-controls="presupuestos{{ i.id }}" aria-expanded="false" aria-label="Toggle navigation">
+                        Ver presupuestos ({{ i.num_quoteResponse }})
+                        <i class="fas fa-bars ms-1"></i>
+                    </button></div>
+
+                </div>
+                <div class="collapse navbar-collapse" id="presupuestos{{ i.id }}">
+                    {% for x in response_list %}
+                    {% if x.orderQuote_id == i.id %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="panel panel-default widget">
+                                
+                                <div class="panel-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-xs-2 col-md-1">
+                                                    <div class="image">
+                                                    <img src="{{ x.workeruser.photoProfile.url }}"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-10 col-md-11">
+                                                    <div>
+                                                        <a href="http://www.jquery2dotnet.com/2013/10/google-style-login-page-desing-usign.html">
+                                                            {{ x.workeruser.name }}</a>
+                                                        <div class="mic-info">
+                                                            By: <a href="#">{{ x.workeruser.user }}</a> on 2 Aug 2013
+                                                        </div>
+                                                    </div>
+                                                    <div class="comment-text">
+                                                        Awesome design
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> Solicitar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>  
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</div>
+
+{% endfor %}
+
+
+
+
+<!-- Product image
+<section class="py-5">
+    
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            {% for i in object_list %}
+            <div class="col mb-5">
+                <div class="card h-100">
+                    
+                    <img class="card-img-top" src="{{ i.imageOrderQuote.url }}" alt="..." />
+                    
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            
+                            <h5 class="fw-bolder">{{ i.asunto }}</h5>
+                            <h6 class="fw-bolder">{{ i.description }}</h6>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#!">Ver Categoria</a></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}-->
+{% endblock content %}

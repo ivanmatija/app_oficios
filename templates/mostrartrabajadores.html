@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    
+
+{% block style %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+::selection{
+  background: #198754;
+  color: #fff;
+}
+html,body{
+  display: grid;
+  height: 100%;
+  place-items: center;
+  background: #fff;
+}
+.container{
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  .container .box{
+    border: 2px solid #198754;
+    min-height: 407px;
+    min-width: 250px;
+    width: calc(50% - 10px);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px;
+    border-radius: 5px;
+  }
+.box .quote i{
+margin-top: 10px;
+font-size: 45px;
+color: #17c0eb
+}
+.container .box .image{
+  margin: 10px 0;
+  height: 150px;
+  width: 150px;
+  background: #198754;
+  padding: 3px;
+  border-radius: 50%;
+}
+.box .image img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+.box p{
+  text-align: justify;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 400;
+}
+.box .name_job{
+  margin: 10px 0 3px 0;
+  color: #198754;
+  font-size: 18px;
+  font-weight: 600;
+}
+.rating i{
+  font-size: 18px;
+  color: #198754;
+  margin-bottom: 5px;
+}
+.btns{
+  margin-top: 20px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.btns button{
+  background: #198754;
+  width: 100%;
+  padding: 9px 0px;
+  outline: none;
+  border: 2px solid #198754;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 400;
+  color: #198754;
+  transition: all 0.3s linear;
+}
+.btns button:first-child{
+  background: none;
+  margin-right: 5px;
+}
+.btns button:last-child{
+  color: none;
+  margin-left: 5px;
+}
+.btns button:last-child{
+  color: none;
+  margin-left: 5px;
+}
+.btns button:first-child:hover{
+  background: #198754;
+  color: #fff;
+}
+.btns button:hover{
+  color: #fff;
+}
+@media (max-width:1045px){
+  .container .box{
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+  }
+}
+@media (max-width:710px){
+  .container .box{
+    width: 100%;
+  }
+}
+
+</style>
+{% endblock style%}
+
+
+{% block content %}
+<br><br><br><br><br><br>
+    <div class="container">
+    {% for i in object_list %}
+      <div class="box">
+      <div class="image">
+        <img src="{{ i.photoProfile.url }}">
+        </div>
+        <div class="name_job">{{i.user}}</div>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p> {{i.description}}</p>
+        <div class="btns">
+          <button>Solicitar</button>
+          <a class="btn btn-primary btn-sm" href="{% url "workerprofile" i.id %}">Ver Perfil</a>
+        </div>
+        <div class="btns">
+          <button>Pedir presupuesto</button>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+{% endblock content %}
+    {% block footer %}
+    
+            <!-- Footer-->
+            <footer class="footer py-4">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2022</div>
+                        <div class="col-lg-4 my-3 my-lg-0">
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <div class="col-lg-4 text-lg-end">
+                            <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                            <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+    {% endblock footer%}
+           
+
+
+   

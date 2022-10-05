@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style>
+    body{background:#eee}.ratings i{font-size: 16px;color: red}.strike-text{color: red;text-decoration: line-through}.product-image{width: 100%}.dot{height: 7px;width: 7px;margin-left: 6px;margin-right: 6px;margin-top: 3px;background-color: blue;border-radius: 50%;display: inline-block}.spec-1{color: #938787;font-size: 15px}h5{font-weight: 400}.para{font-size: 16px}
+    
+    body { padding-top:30px; }
+.widget .panel-body { padding:0px; }
+.widget .list-group { margin-bottom: 0; }
+.widget .panel-title { display:inline }
+.widget .label-info { float: right; }
+.widget li.list-group-item {border-radius: 0;border: 0;border-top: 1px solid #ddd;}
+.widget li.list-group-item:hover { background-color: rgba(86,61,124,.1); }
+.widget .mic-info { color: #666666;font-size: 11px; }
+.widget .action { margin-top:5px; }
+.widget .comment-text { font-size: 12px; }
+.widget .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }
+
+
+
+
+.container .row .image{
+  margin: 10px 0;
+  height: 90px;
+  width: 90px;
+  background: #198754;
+  padding: 3px;
+  border-radius: 50%;
+}
+.image img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+
+</style>
+{% endblock style%}
+
+{% block content %}
+<br><br>
+{% for i in object_list %}
+<div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-10">
+            <div class="row p-2 bg-white border rounded mt-2">
+                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="{{ i.imageOrderQuote.url }}"></div>
+                <div class="col-md-6 mt-1">
+                    <h5><b>{{ i.asunto }}</b></h5>
+                    <p class="text-justify text-truncate para mb-0"><b>Categoria:</b>{{ i.category }}</p>
+                    <p class="text-justify text-truncate para mb-0"><b>Descripcion:</b>{{ i.description }}</p>
+                    {% if i.price == None %}
+                    <p class="text-justify text-truncate para mb-0"><b>Precio:</b>Todavia no tiene precio</p>
+                    {% endif %}
+                    <p class="text-justify text-truncate para mb-0"><b>Ubication:</b>{{ i.location }}</p>
+                    <p class="text-justify text-truncate para mb-0"><b>Persona que va a recibir:</b>{{ i.name }}</p>
+                    <p class="text-justify text-truncate para mb-0"><b>Profesional:</b>{{ i.workeruser.user }}</p>
+                    {% if i.status == "1" %}
+                    <p class="text-justify text-truncate para mb-0"><b>Estado:</b>Esperando respuesta<br> del trabajador</p>
+                    {% endif %}
+                    {% if i.status == "2" %}
+                    <p class="text-justify text-truncate para mb-0"><b>Estado:</b>Debes confirmar Fecha<br> y Turno o pedir un cambio</p>
+                    {% endif %}
+                    {% if i.status == "3" %}
+                    <p class="text-justify text-truncate para mb-0"><b>Estado:</b>Solicitud en camino,<br> espera a que el Profesional lo visite</p>
+                    {% endif %}
+                    {% if i.status == "4" %}
+                    <p class="text-justify text-truncate para mb-0"><b>Estado:</b>Esperando respuesta<br> del trabajador</p>
+                    {% endif %}
+                    {% if i.status == "5" %}
+                    <p class="text-justify text-truncate para mb-0"><b>Estado:</b>Esperando respuesta<br> del trabajador</p>
+                    {% endif %}
+                    {% if i.status == "6" %}
+                    <p class="text-justify text-truncate para mb-0"><b>Estado:</b>Esperando respuesta<br> del trabajador</p>
+                    {% endif %}
+                    {% if i.status == "7" %}
+                    <p class="text-justify text-truncate para mb-0"><b>Estado:</b>Esperando respuesta<br> del trabajador</p>
+                    {% endif %}
+                    {% if i.status == "8" %}
+                    <p class="text-justify text-truncate para mb-0"><b>Estado:</b>Esperando respuesta<br> del trabajador</p>
+                    {% endif %}
+                    {% if i.status == "9" %}
+                    <p class="text-justify text-truncate para mb-0"><b>Estado:</b>Esperando respuesta<br> del trabajador</p>
+                    {% endif %}
+                    {% if i.status == "10" %}
+                    <p class="text-justify text-truncate para mb-0"><b>Estado:</b>Esperando respuesta<br> del trabajador</p>
+                    {% endif %}
+                    {% if i.date == None and i.status == "1" %}
+                    <p class="text-justify text-truncate para mb-0"><b>Fecha:</b>Espera a que el profesional<br> le proponga una fecha</p>
+                    {% endif %}
+                    {% if i.date == None and i.status == "2" %}
+                    <p class="text-justify text-truncate para mb-0"><b>Fecha:</b>Confirmá la fecha o solicita un cambio</p>
+                    {% endif %}
+                    {% if i.workshift == "m" %}
+                    <p class="text-justify text-truncate para mb-0"><b>Turno:</b>8 a 12 hs</p>
+                    {% endif %}
+                    {% if i.workshift == "s" %}
+                    <p class="text-justify text-truncate para mb-0"><b>Turno:</b>14 a 17 hs</p>
+                    {% endif %}
+                    {% if i.workshift == "t" %}
+                    <p class="text-justify text-truncate para mb-0"><b>Turno:</b>17 a 21 hs</p>
+                    {% endif %}
+                    {% if i.workshift == "u" %}
+                    <p class="text-justify text-truncate para mb-0"><b>Turno:</b>Urgente</p>
+                    {% endif %}
+                </div>
+                <div class="col-md-10">
+                <a class="btn btn-primary" href="#" role="button">Editar</a> 
+                <a class="btn btn-primary" href="#" role="button">No vino</a>
+                <a class="btn btn-primary" href="#" role="button">Pagar</a>
+                <a class="btn btn-primary" href="#" role="button">Requerir Garantía</a>
+                <a class="btn btn-primary" href="#" role="button">Dejar una Reseña</a>
+                </div>      
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</div>
+
+{% endfor %}
+
+{% endblock content %}
